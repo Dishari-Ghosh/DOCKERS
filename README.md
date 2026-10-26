@@ -176,9 +176,75 @@ Explanation:
 - `stop`: Stops a running container gracefully.
 - `CONTAINER_ID_OR_NAME`: The ID or name of the container.
 
+
 Note: Replace the placeholder with an actual container ID or name. You can find these using `docker ps -a`.
 
 ---
+## 10. `docker rmi IMAGE_ID_OR_NAME`
+
+**Purpose:** Removes a Docker image from the local system.
+
+```powershell
+docker rmi IMAGE_ID_OR_NAME
+```
+
+Explanation:
+
+- `docker`: Command-line tool used to communicate with Docker.
+- `rmi`: Removes a Docker image.
+- `IMAGE_ID_OR_NAME`: The ID or name of the image to remove.
+
+**Important notes:**
+
+- `docker rmi` removes images, not containers.
+- Docker may prevent image removal if existing containers reference the image.
+- Remove dependent containers first if necessary.
+- Use `docker images` to find image IDs and names.
+
+## 11. `docker rm CONTAINER_ID_OR_NAME`
+
+**Purpose:** Removes an existing Docker container from the local system.
+
+```powershell
+docker rm CONTAINER_ID_OR_NAME
+```
+
+Explanation:
+
+- `docker`: Command-line tool used to communicate with Docker.
+- `rm`: Removes a container.
+- `CONTAINER_ID_OR_NAME`: The ID or name of the container to remove.
+
+### Case 1: Container is stopped
+
+A stopped container can normally be removed directly:
+
+```powershell
+docker rm CONTAINER_ID_OR_NAME
+```
+
+### Case 2: Container is running
+
+Docker normally prevents removal of a running container.
+
+**Step 1: Stop the container.**
+
+```powershell
+docker stop CONTAINER_ID_OR_NAME
+```
+
+**Step 2: Remove the stopped container.**
+
+```powershell
+docker rm CONTAINER_ID_OR_NAME
+```
+
+**Important notes:**
+
+- `docker rm` removes containers, not images.
+- Removing a container does not automatically remove its image.
+- Data stored only in the container's writable layer is lost when the container is removed. Data stored in volumes is managed separately.
+- Use `docker ps -a` to find container IDs and names.
 
 
 I will continue adding explanations, examples, and practical exercises as I progress through my Docker course.

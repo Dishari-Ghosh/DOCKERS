@@ -60,3 +60,30 @@ docker start CONTAINER_ID_OR_NAME
 # Stop a running container
 # Replace CONTAINER_ID_OR_NAME with a real ID or name
 docker stop CONTAINER_ID_OR_NAME
+
+# ==========================================
+# 6. Remove Docker Images
+# ==========================================
+
+# List images to identify an image ID or name
+docker images
+
+# Remove an image
+# Replace IMAGE_ID_OR_NAME with a real image ID or name
+docker rmi IMAGE_ID_OR_NAME
+
+
+# ==========================================
+# 7. Remove Docker Containers
+# ==========================================
+
+# List all containers to identify a container ID or name
+docker ps -a
+
+# Stop a running container before removing it
+# Replace CONTAINER_ID_OR_NAME with a real ID or name
+docker stop CONTAINER_ID_OR_NAME
+
+# Remove a stopped container
+# Replace CONTAINER_ID_OR_NAME with a real ID or name
+docker rm CONTAINER_ID_OR_NAME
